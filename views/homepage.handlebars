@@ -1,0 +1,33 @@
+<div class="container-fluid mt-5">
+    {{#each blogs as |blog|}}
+    <div class="row mt-5">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h2>
+                        <a class="blogTitle text-uppercase" href="/blog/{{blog.id}}">{{blog.title}}</a>
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <p>{{blog.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <p class="blogCreate text-right">Created by
+                        {{blog.user.username}}
+                        on
+                        {{format_date blog.date_created}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card p-3">
+                <h4>No posts yet. <a href="/dashboard">Create new post.</a></h4>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
